@@ -1,11 +1,12 @@
 {%  extends "index.html" %}
 {% block content%}
-<label for="uname"><b>Username</b></label>
-<input type="text" placeholder="Enter Username" name="uname" required>
-
+<label for="uname" class="lab"><b>Username</b></label>
+<input type="text" class="my-3" placeholder="Enter Username" name="uname" required>
+<br>
 <label for="psw"><b>Password</b></label>
 <input type="password" placeholder="Enter Password" name="psw" required>
-
-<button class="" type="submit">Login</button>
-<a href="{% url 'signup' %}" class="text-light">create a new account</a>
+<br>
+<button class="my-2" type="submit">Login</button>
+<br>
+<a href="{% url 'signup' %}" class="my-2">create a new account</a>
 {% endblock content %}
