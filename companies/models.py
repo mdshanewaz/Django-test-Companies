@@ -4,8 +4,13 @@ from django.utils import timezone
 # Create your models here.
 
 class Company(models.Model):
-    name = models.CharField(max_length=100)
-    address = models.CharField(max_length=200)
+    name = models.CharField(max_length=100, null=True)
+    address = models.CharField(max_length=200, null=True)
+    location = models.CharField(max_length=100, null=True)
+    about = models.TextField(null=True)
+    type = models.CharField(max_length=100, null=True, choices=(('IT', 'IT'), ('Non IT', 'Non IT'), ('Garments', 'Garments')))
+    date_created = models.DateField(auto_now=True, null=True)
+    active = models.BooleanField(default=True, null=True)
 
     def __str__(self):
         return self.name
@@ -15,10 +20,11 @@ class Employee(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=20)
-    job_title = models.CharField(max_length=100)
+    job_title = models.CharField(max_length=100, choices=(('CEO', 'CEO'), ('CTO', 'CTO'), ('SE', 'SE'), ('TecLead', 'TecLead')))
+    about = models.TextField(null=True)
 
     def __str__(self):
-        return self.name
+        return self.name +'--'+ self.job_title
 
 class Asset(models.Model):
     model = models.CharField(max_length=100)

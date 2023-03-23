@@ -1,0 +1,24 @@
+{%  extends "index.html" %}
+{% block content%}
+<label for="fname"><b>Firstname</b></label>
+<input class="my-3" type="text" placeholder="Enter Firstname" name="fname" required>
+<br>
+<label for="lname"><b>Lastname</b></label>
+<input class="my-3" type="text" placeholder="Enter Lastname" name="fname" required>
+<br>
+<label for="uname"><b>Username</b></label>
+<input class="my-3" type="text" placeholder="Enter Username" name="uname" required>
+<br>
+<label for="psw"><b>Email</b></label>
+<input class="my-3" type="email" placeholder="Enter Email" name="psw" required>
+<br>
+<label for="psw"><b>Password</b></label>
+<input class="my-3" type="password" placeholder="Enter Password" name="psw" required>
+<br>
+<label for="psw"><b>Password</b></label>
+<input class="my-3" type="password" placeholder="Re-enter Password" name="psw" required>
+<br>
+<button class="my-2" type="submit">Signup</button>
+<br>
+<a href="{% url 'login' %}" class="my-2">Already have an account</a>
+{% endblock content %}
