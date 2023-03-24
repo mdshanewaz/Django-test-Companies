@@ -7,6 +7,8 @@ from rest_framework import routers
 router = routers.DefaultRouter()
 router.register(r'company', CompanyViewSet)
 router.register(r'employee', EmployeeViewSet)
+router.register(r'asset', AssetViewSet)
+router.register(r'devicelog', DeviceLogViewSet)
 
 urlpatterns = [
     path('', views.login, name="login"),

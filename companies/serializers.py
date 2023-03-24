@@ -20,30 +20,17 @@ class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
         model = Employee
         fields = "__all__"
 
-class ResgisterSerializer(serializers.ModelSerializer):
+class AssetSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.ReadOnlyField()
     class Meta:
-        models = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password', 'password2')
-        extra_kwargs = {
-            'password' : {'write_only':True}
-        }
+        model = Asset
+        fields = "__all__"
 
-    def save(self):
-        user = User(
-            username = self.validated_data['username'],
-            email = self.validated_data['email'],
-            first_name = self.validated_data['firstname'],
-            last_name = self.validated_data['last_name'],
-        )
+class DeviceLogSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.ReadOnlyField()
+    class Meta:
+        model = DeviceLog
+        fields = "__all__"
 
-        password = self.validated_data['password']
-        password2 = self.validated_data['password2']
-
-        if password != password2:
-            raise ValidationErr({'password': 'Password did not matched'})
-
-        user.set_password(password)
-        user.save()
-        return user
     
 
